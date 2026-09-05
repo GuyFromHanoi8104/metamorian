@@ -315,9 +315,14 @@ main {
 
 /* ---------- Kollab callout (Home) ---------- */
 
-.callout {
+.callout-list {
   margin-top: 38px;
   max-width: 60ch;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.callout {
   display: flex;
   align-items: center;
   gap: 18px;
@@ -371,6 +376,16 @@ main {
   padding: 6px;
   cursor: pointer;
   white-space: nowrap;
+}
+.callout__soon {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  white-space: nowrap;
+  padding: 6px;
 }
 
 /* ---------- product card (Products) ---------- */
@@ -534,7 +549,8 @@ main {
   .callout__text {
     flex-basis: calc(100% - 64px);
   }
-  .link-arrow {
+  .link-arrow,
+  .callout__soon {
     margin-left: 56px;
   }
 }

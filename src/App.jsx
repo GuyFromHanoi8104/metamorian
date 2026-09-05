@@ -130,18 +130,32 @@ function HomeView({ onNavigate }) {
           </p>
         </div>
 
-        <div className="callout">
-          <KollabTile />
-          <span className="callout__text">
-            <span className="callout__name">Kollab</span>
-            <span className="callout__sub">Our first product, live today.</span>
-          </span>
-          <button
-            className="link-arrow"
-            onClick={() => onNavigate('products')}
-          >
-            View &rarr;
-          </button>
+        <div className="callout-list">
+          <div className="callout">
+            <KollabTile />
+            <span className="callout__text">
+              <span className="callout__name">Kollab</span>
+              <span className="callout__sub">Our first product, live today.</span>
+            </span>
+            <button
+              className="link-arrow"
+              onClick={() => onNavigate('products')}
+            >
+              View &rarr;
+            </button>
+          </div>
+          <div className="callout">
+            <span className="product-tile">
+              <AresMark />
+            </span>
+            <span className="callout__text">
+              <span className="callout__name">Ares</span>
+              <span className="callout__sub">
+                Data infrastructure for remote regions.
+              </span>
+            </span>
+            <span className="callout__soon">Coming soon</span>
+          </div>
         </div>
       </section>
     </div>
