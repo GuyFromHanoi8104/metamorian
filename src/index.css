@@ -1,0 +1,522 @@
+/* =========================================================================
+   Metamorian — visual identity
+   Concept: the holding company is deliberately quiet. Ink on warm paper, a
+   literary serif, no brand colour of its own — so the one product that has
+   colour (Kollab) is the only chroma on the page. Palette is taken straight
+   from the logo: a warm near-black mark on warm off-white. The single deep
+   warm tone is "ink that warmed up", used only for links and arrows.
+   ========================================================================= */
+
+:root {
+  --paper: #f4f3f0;
+  --paper-raised: #fbfbf9;
+  --ink: #17150f;
+  --ink-soft: #55514a;
+  --ink-mute: #8b857a;
+  --line: #dedad1;
+  --line-soft: #e8e5dd;
+  --accent: #4a3f30;
+
+  --font-display: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --measure: 940px;
+  --pad-x: 34px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #141310;
+    --paper-raised: #1c1a15;
+    --ink: #f1ede4;
+    --ink-soft: #b0aa9d;
+    --ink-mute: #847e71;
+    --line: #2c2922;
+    --line-soft: #23211b;
+    --accent: #c8b48f;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #141310;
+  --paper-raised: #1c1a15;
+  --ink: #f1ede4;
+  --ink-soft: #b0aa9d;
+  --ink-mute: #847e71;
+  --line: #2c2922;
+  --line-soft: #23211b;
+  --accent: #c8b48f;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* ---------- shared type roles ---------- */
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+
+/* ---------- shell ---------- */
+
+.shell {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--paper) 86%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.site-header__row {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 18px var(--pad-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: var(--ink);
+}
+.wordmark__icon {
+  width: 26px;
+  height: 26px;
+  display: block;
+  flex-shrink: 0;
+}
+.wordmark__text {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+}
+
+.nav {
+  display: flex;
+  gap: 2px;
+}
+.nav__link {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  background: none;
+  border: 0;
+  padding: 8px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: color 140ms ease, background-color 140ms ease;
+}
+.nav__link:hover {
+  color: var(--ink);
+  background: var(--line-soft);
+}
+.nav__link[aria-current="page"] {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+
+/* ---------- views ---------- */
+
+main {
+  min-height: 62vh;
+}
+
+.view {
+  animation: rise 380ms ease both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .view {
+    animation: none;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 92px 0 68px;
+}
+.hero__watermark {
+  position: absolute;
+  right: -13%;
+  top: 46%;
+  transform: translateY(-50%);
+  width: clamp(280px, 40vw, 460px);
+  color: var(--line);
+  opacity: 0.6;
+  pointer-events: none;
+}
+.hero__inner {
+  position: relative;
+  max-width: 660px;
+}
+.hero__eyebrow {
+  color: var(--ink);
+}
+.hero h1 {
+  margin: 22px 0 0;
+  font-size: clamp(38px, 5.6vw, 58px);
+  line-height: 1.1;
+  max-width: 19ch;
+}
+.hero__lede {
+  margin: 26px 0 0;
+  max-width: 56ch;
+  font-size: 19px;
+  line-height: 1.62;
+  color: var(--ink-soft);
+}
+.hero__actions {
+  margin-top: 34px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ---------- buttons ---------- */
+
+.btn {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 11px 20px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 140ms ease, border-color 140ms ease,
+    color 140ms ease;
+}
+.btn--solid {
+  background: var(--ink);
+  color: var(--paper);
+}
+.btn--solid:hover {
+  background: var(--accent);
+  color: var(--paper);
+}
+.btn--line {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+.btn--line:hover {
+  border-color: var(--ink-mute);
+}
+
+/* ---------- content blocks ---------- */
+
+.block {
+  padding: 60px 0;
+  border-top: 1px solid var(--line-soft);
+}
+.block:first-child {
+  border-top: 0;
+}
+.block h2 {
+  margin: 12px 0 0;
+  font-size: 27px;
+  line-height: 1.2;
+  max-width: 22ch;
+}
+.prose {
+  max-width: 60ch;
+}
+.prose p {
+  margin: 18px 0 0;
+  font-size: 16px;
+  line-height: 1.72;
+  color: var(--ink-soft);
+}
+.prose p:first-of-type {
+  margin-top: 20px;
+}
+
+/* ---------- Kollab callout (Home) ---------- */
+
+.callout {
+  margin-top: 38px;
+  max-width: 60ch;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 20px;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+}
+.product-tile {
+  width: 46px;
+  height: 46px;
+  border-radius: 2px;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  padding: 7px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.callout__text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.callout__name {
+  font-weight: 600;
+  font-size: 15px;
+}
+.callout__sub {
+  font-size: 13px;
+  color: var(--ink-mute);
+  margin-top: 1px;
+}
+.link-arrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: none;
+  border: 0;
+  padding: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ---------- product card (Products) ---------- */
+
+.product-card {
+  margin-top: 22px;
+  display: flex;
+  gap: 22px;
+  padding: 28px;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  max-width: 600px;
+}
+.product-card .product-tile {
+  width: 54px;
+  height: 54px;
+  padding: 8px;
+}
+.product-card__head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.product-card h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+}
+.product-card__tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.product-card p {
+  margin: 12px 0 0;
+  font-size: 15px;
+  line-height: 1.66;
+  color: var(--ink-soft);
+  max-width: 44ch;
+}
+.product-card__link {
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+}
+.product-card__link:hover {
+  text-decoration: underline;
+}
+.more-note {
+  margin-top: 26px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-mute);
+  max-width: 46ch;
+}
+
+/* ---------- careers empty state ---------- */
+
+.empty-state {
+  margin-top: 24px;
+  padding: 34px 28px;
+  border: 1px dashed color-mix(in srgb, var(--ink-mute) 45%, var(--line));
+  border-radius: 2px;
+  max-width: 44ch;
+}
+.empty-state__title {
+  font-weight: 600;
+  font-size: 16px;
+}
+.empty-state__sub {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-mute);
+}
+
+/* ---------- footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--line-soft);
+  padding: 30px 0;
+}
+.site-footer .shell {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.site-footer__mark {
+  width: 20px;
+  height: 20px;
+  color: var(--ink-mute);
+  flex-shrink: 0;
+}
+.site-footer__line {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--ink-mute);
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 640px) {
+  :root {
+    --pad-x: 20px;
+  }
+  .hero {
+    padding: 60px 0 48px;
+  }
+  .hero__watermark {
+    width: 300px;
+    right: -22%;
+    opacity: 0.6;
+  }
+  .wordmark__text {
+    font-size: 18px;
+  }
+  .block {
+    padding: 46px 0;
+  }
+  .product-card {
+    flex-direction: column;
+    padding: 22px;
+  }
+  .callout {
+    flex-wrap: wrap;
+  }
+  .callout__text {
+    flex-basis: calc(100% - 64px);
+  }
+  .link-arrow {
+    margin-left: 56px;
+  }
+}
