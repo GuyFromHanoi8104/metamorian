@@ -375,8 +375,13 @@ main {
 
 /* ---------- product card (Products) ---------- */
 
-.product-card {
+.product-list {
   margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.product-card {
   display: flex;
   gap: 22px;
   padding: 28px;
@@ -432,6 +437,19 @@ main {
 }
 .product-card__link:hover {
   text-decoration: underline;
+}
+.status-pill {
+  margin-top: 16px;
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 4px 9px;
 }
 .more-note {
   margin-top: 26px;

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Mark from './components/Mark.jsx'
+import AresMark from './components/AresMark.jsx'
 import kollabMark from './assets/kollab-mark.jpg'
 
 const NAV = [
@@ -114,14 +115,18 @@ function HomeView({ onNavigate }) {
         <div className="prose">
           <p>
             Metamorian works in digital transformation and technology. So far
-            that work has taken the shape of one product, aimed at influencer
-            marketing and talent management.
+            that means one product in the market and a second in development.
           </p>
           <p>
-            That product is Kollab. It takes the relationship-driven work of
-            creator outreach and turns it into search: a brand looks for
+            The one in the market is Kollab. It takes the relationship-driven
+            work of creator outreach and turns it into search: a brand looks for
             creators and sees follower counts pulled straight from Instagram and
             TikTok, not numbers a creator typed in themselves.
+          </p>
+          <p>
+            The one in development is Ares, bringing data infrastructure to
+            remote and disaster-affected regions, starting in Vietnam&rsquo;s
+            highlands.
           </p>
         </div>
 
@@ -150,35 +155,60 @@ function ProductsView() {
         <p className="eyebrow">Products</p>
         <h2 className="display">What we&rsquo;ve built so far.</h2>
 
-        <div className="product-card">
-          <KollabTile />
-          <div>
-            <div className="product-card__head">
-              <h3>Kollab</h3>
-              <span className="product-card__tag">
-                Brand &times; creator marketplace
-              </span>
+        <div className="product-list">
+          <article className="product-card">
+            <KollabTile />
+            <div>
+              <div className="product-card__head">
+                <h3>Kollab</h3>
+                <span className="product-card__tag">
+                  Brand &times; creator marketplace
+                </span>
+              </div>
+              <p>
+                A marketplace connecting Vietnamese brands with content
+                creators. Every follower count is checked against Instagram and
+                TikTok, so a brand knows the reach is real before the first
+                message goes out.
+              </p>
+              <a
+                className="product-card__link"
+                href={KOLLAB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                appkollab.com &rarr;
+              </a>
             </div>
-            <p>
-              A marketplace connecting Vietnamese brands with content creators.
-              Every follower count is checked against Instagram and TikTok, so a
-              brand knows the reach is real before the first message goes out.
-            </p>
-            <a
-              className="product-card__link"
-              href={KOLLAB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              appkollab.com &rarr;
-            </a>
-          </div>
+          </article>
+
+          <article className="product-card">
+            <span className="product-tile">
+              <AresMark />
+            </span>
+            <div>
+              <div className="product-card__head">
+                <h3>Ares</h3>
+                <span className="product-card__tag">
+                  Remote data infrastructure
+                </span>
+              </div>
+              <p>
+                Data infrastructure for places reliable networks never reached.
+                Ares starts in Vietnam&rsquo;s remote highlands and
+                disaster-affected regions, where moving data in and out is what
+                stands between a community being cut off and being able to
+                recover, then extends the same coverage to disconnected
+                communities elsewhere.
+              </p>
+              <span className="status-pill">Coming soon</span>
+            </div>
+          </article>
         </div>
 
         <p className="more-note">
-          Kollab is where we started, built for influencer marketing and talent
-          management. More will follow across digital transformation and
-          technology.
+          Kollab is live today and Ares is in development. More will follow
+          across digital transformation and technology.
         </p>
       </section>
     </div>
@@ -195,12 +225,17 @@ function AboutView() {
           <p>
             Metamorian is a Vietnam-based holding company working in digital
             transformation and technology. So far that work has taken the shape
-            of a single product.
+            of one product in the market and one more in development.
           </p>
           <p>
-            That product is Kollab, built for influencer marketing and talent
+            The first is Kollab, built for influencer marketing and talent
             management. It connects brands and creators through a verified
             marketplace instead of manual, relationship-driven outreach.
+          </p>
+          <p>
+            The second is Ares: data infrastructure for remote and
+            disaster-affected regions, starting in Vietnam&rsquo;s highlands and
+            extending to disconnected communities elsewhere.
           </p>
         </div>
       </section>

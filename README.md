@@ -39,3 +39,14 @@ wordmark next to it is live text (`IBM Plex Sans`), not part of the image.
 
 The Kollab "K" on the product card is `src/assets/kollab-mark.jpg`, shown in a
 small light tile so it reads on either theme.
+
+`src/components/AresMark.jsx` is likewise a traced approximation of the Ares
+logo (broadcast tower + signal arcs), drawn as SVG in the brand colours
+(`#9e3b2e` / `#c55a2c`). Source raster: `src/assets/ares-lockup-source.jpg`.
+Swap in the official vector when it exists.
+
+## Products
+
+`src/App.jsx` holds the product list. Kollab is live and links to
+`https://appkollab.com`; Ares is marked **Coming soon** with no link. When Ares
+launches, give it a real URL and swap the `status-pill` for a `product-card__link`.
