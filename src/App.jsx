@@ -22,6 +22,7 @@ function KollabTile({ className }) {
 
 export default function App() {
   const [view, setView] = useState('home')
+  const [salesNoticeOpen, setSalesNoticeOpen] = useState(false)
 
   const go = (id) => {
     setView(id)
@@ -32,6 +33,13 @@ export default function App() {
     document.title =
       view === 'home' ? 'Metamorian' : `${cap(view)} — Metamorian`
   }, [view])
+
+  useEffect(() => {
+    if (!salesNoticeOpen) return
+    const onKey = (e) => e.key === 'Escape' && setSalesNoticeOpen(false)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [salesNoticeOpen])
 
   return (
     <>
@@ -61,7 +69,9 @@ export default function App() {
       </header>
 
       <main className="shell">
-        {view === 'home' && <HomeView onNavigate={go} />}
+        {view === 'home' && (
+          <HomeView onNavigate={go} onContactSales={() => setSalesNoticeOpen(true)} />
+        )}
         {view === 'products' && <ProductsView />}
         {view === 'about' && <AboutView />}
         {view === 'careers' && <CareersView />}
@@ -75,11 +85,37 @@ export default function App() {
           </span>
         </div>
       </footer>
+
+      {salesNoticeOpen && (
+        <ContactSalesModal onClose={() => setSalesNoticeOpen(false)} />
+      )}
     </>
   )
 }
 
-function HomeView({ onNavigate }) {
+function ContactSalesModal({ onClose }) {
+  return (
+    <div className="modal-backdrop" onClick={onClose}>
+      <div
+        className="modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Contact sales"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <p className="eyebrow">Contact sales</p>
+        <p className="modal-card__body">
+          Unavailable for now. We&rsquo;ll be in touch soon.
+        </p>
+        <button className="btn btn--solid" onClick={onClose}>
+          Got it
+        </button>
+      </div>
+    </div>
+  )
+}
+
+function HomeView({ onNavigate, onContactSales }) {
   return (
     <div className="view" id="view-home">
       <section className="hero">
@@ -156,6 +192,45 @@ function HomeView({ onNavigate }) {
             </span>
             <span className="callout__soon">Coming soon</span>
           </div>
+        </div>
+      </section>
+
+      <section className="block">
+        <p className="eyebrow">Web design</p>
+        <h2 className="display">We also design and build for other teams.</h2>
+        <div className="prose">
+          <p>
+            Outside our own products, Metamorian designs and builds web
+            products for other companies. Kollab is our own work, live at
+            appkollab.com, and the first thing in the portfolio.
+          </p>
+        </div>
+
+        <div className="callout-list">
+          <div className="callout">
+            <KollabTile />
+            <span className="callout__text">
+              <span className="callout__name">Kollab</span>
+              <span className="callout__sub">
+                Brand &times; creator marketplace, designed and built end to
+                end.
+              </span>
+            </span>
+            <a
+              className="link-arrow"
+              href={KOLLAB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View &rarr;
+            </a>
+          </div>
+        </div>
+
+        <div className="hero__actions">
+          <button className="btn btn--line" onClick={onContactSales}>
+            Contact sales
+          </button>
         </div>
       </section>
     </div>

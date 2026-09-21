@@ -375,6 +375,7 @@ main {
   border: 0;
   padding: 6px;
   cursor: pointer;
+  text-decoration: none;
   white-space: nowrap;
 }
 .callout__soon {
@@ -492,6 +493,37 @@ main {
   font-size: 14px;
   line-height: 1.6;
   color: var(--ink-mute);
+}
+
+/* ---------- contact-sales modal ---------- */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: color-mix(in srgb, var(--ink) 45%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 50;
+}
+.modal-card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 28px;
+}
+.modal-card__body {
+  margin: 14px 0 0;
+  font-family: var(--font-display);
+  font-size: 19px;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.modal-card .btn {
+  margin-top: 22px;
 }
 
 /* ---------- footer ---------- */
