@@ -11,6 +11,7 @@ const NAV = [
 ]
 
 const KOLLAB_URL = 'https://appkollab.com'
+const EVATECH_URL = 'https://evatech-engineering.com'
 
 function KollabTile({ className }) {
   return (
@@ -202,7 +203,8 @@ function HomeView({ onNavigate, onContactSales }) {
           <p>
             Outside our own products, Metamorian designs and builds web
             products for other companies. Kollab is our own work, live at
-            appkollab.com, and the first thing in the portfolio.
+            appkollab.com. Evatech Engineering is next, shipped at
+            evatech-engineering.com.
           </p>
         </div>
 
@@ -219,6 +221,25 @@ function HomeView({ onNavigate, onContactSales }) {
             <a
               className="link-arrow"
               href={KOLLAB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View &rarr;
+            </a>
+          </div>
+          <div className="callout">
+            <span className="product-tile product-tile--text" aria-hidden="true">
+              E
+            </span>
+            <span className="callout__text">
+              <span className="callout__name">Evatech Engineering</span>
+              <span className="callout__sub">
+                Shipped at evatech-engineering.com.
+              </span>
+            </span>
+            <a
+              className="link-arrow"
+              href={EVATECH_URL}
               target="_blank"
               rel="noopener noreferrer"
             >

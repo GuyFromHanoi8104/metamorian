@@ -349,6 +349,13 @@ main {
   object-fit: contain;
   display: block;
 }
+.product-tile--text {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 19px;
+  color: var(--ink);
+  background: var(--paper);
+}
 .callout__text {
   flex: 1;
   min-width: 0;
