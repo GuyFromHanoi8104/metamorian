@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Mark from './components/Mark.jsx'
 import AresMark from './components/AresMark.jsx'
 import kollabMark from './assets/kollab-mark.jpg'
+import evatechMark from './assets/evatech-mark.jpg'
 
 const NAV = [
   { id: 'home', label: 'Home' },
@@ -17,6 +18,14 @@ function KollabTile({ className }) {
   return (
     <span className={className ? `product-tile ${className}` : 'product-tile'}>
       <img src={kollabMark} alt="Kollab logo" />
+    </span>
+  )
+}
+
+function EvatechTile({ className }) {
+  return (
+    <span className={className ? `product-tile ${className}` : 'product-tile'}>
+      <img src={evatechMark} alt="Evatech Engineering logo" />
     </span>
   )
 }
@@ -228,9 +237,7 @@ function HomeView({ onNavigate, onContactSales }) {
             </a>
           </div>
           <div className="callout">
-            <span className="product-tile product-tile--text" aria-hidden="true">
-              E
-            </span>
+            <EvatechTile />
             <span className="callout__text">
               <span className="callout__name">Evatech Engineering</span>
               <span className="callout__sub">
