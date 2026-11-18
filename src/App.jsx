@@ -51,7 +51,7 @@ export default function App() {
 
   useEffect(() => {
     document.title =
-      view === 'home' ? 'Metamorian' : `${cap(view)} — Metamorian`
+      view === 'home' ? 'Metamorian' : `${cap(view)} - Metamorian`
   }, [view])
 
   useEffect(() => {
@@ -101,7 +101,7 @@ export default function App() {
         <div className="shell">
           <Mark className="site-footer__mark" decorative />
           <span className="site-footer__line">
-            © 2026 Metamorian. Kollab is a product of Metamorian.
+            © 2026 Metamorian. Kollab and Kizuna are products of Metamorian.
           </span>
         </div>
       </footer>
@@ -171,13 +171,18 @@ function HomeView({ onNavigate, onContactSales }) {
         <div className="prose">
           <p>
             Metamorian works in digital transformation and technology. So far
-            that means one product in the market and a second in development.
+            that means two products in the market and a third in development.
           </p>
           <p>
-            The one in the market is Kollab. It takes the relationship-driven
-            work of creator outreach and turns it into search: a brand looks for
-            creators and sees follower counts pulled straight from Instagram and
-            TikTok, not numbers a creator typed in themselves.
+            Kollab takes the relationship-driven work of creator outreach and
+            turns it into search: a brand looks for creators and sees follower
+            counts pulled straight from Instagram and TikTok, not numbers a
+            creator typed in themselves.
+          </p>
+          <p>
+            Kizuna is a world map for the friends, classmates and colleagues
+            you&rsquo;ve met abroad, with each person&rsquo;s details and how
+            you met.
           </p>
           <p>
             The one in development is Ares, bringing data infrastructure to
@@ -192,6 +197,21 @@ function HomeView({ onNavigate, onContactSales }) {
             <span className="callout__text">
               <span className="callout__name">Kollab</span>
               <span className="callout__sub">Our first product, live today.</span>
+            </span>
+            <button
+              className="link-arrow"
+              onClick={() => onNavigate('products')}
+            >
+              View &rarr;
+            </button>
+          </div>
+          <div className="callout">
+            <KizunaTile />
+            <span className="callout__text">
+              <span className="callout__name">Kizuna</span>
+              <span className="callout__sub">
+                Live today. A world map of people you&rsquo;ve met abroad.
+              </span>
             </span>
             <button
               className="link-arrow"
@@ -221,9 +241,9 @@ function HomeView({ onNavigate, onContactSales }) {
         <div className="prose">
           <p>
             Outside our own products, Metamorian designs and builds web
-            products for other companies. Kollab is our own work, live at
-            appkollab.com. Evatech Engineering and Kizuna followed, shipped at
-            evatech-engineering.com and gokizuna.eu.
+            products for other companies. Kollab and Kizuna are our own work,
+            live at appkollab.com and gokizuna.eu. Evatech Engineering is
+            shipped at evatech-engineering.com.
           </p>
         </div>
 
@@ -268,7 +288,7 @@ function HomeView({ onNavigate, onContactSales }) {
             <span className="callout__text">
               <span className="callout__name">Kizuna</span>
               <span className="callout__sub">
-                A world map for the people you&rsquo;ve met abroad.
+                World map app, designed and built end to end.
               </span>
             </span>
             <a
@@ -327,6 +347,30 @@ function ProductsView() {
           </article>
 
           <article className="product-card">
+            <KizunaTile />
+            <div>
+              <div className="product-card__head">
+                <h3>Kizuna</h3>
+                <span className="product-card__tag">People map</span>
+              </div>
+              <p>
+                A world map for the friends, classmates and colleagues
+                you&rsquo;ve met abroad. Each pin keeps the person&rsquo;s
+                details and how you met, so nobody you meet on the road gets
+                lost.
+              </p>
+              <a
+                className="product-card__link"
+                href={KIZUNA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                gokizuna.eu &rarr;
+              </a>
+            </div>
+          </article>
+
+          <article className="product-card">
             <span className="product-tile">
               <AresMark />
             </span>
@@ -351,8 +395,8 @@ function ProductsView() {
         </div>
 
         <p className="more-note">
-          Kollab is live today and Ares is in development. More will follow
-          across digital transformation and technology.
+          Kollab and Kizuna are live today and Ares is in development. More will
+          follow across digital transformation and technology.
         </p>
       </section>
     </div>
@@ -364,12 +408,12 @@ function AboutView() {
     <div className="view" id="view-about">
       <section className="block">
         <p className="eyebrow">About us</p>
-        <h2 className="display">A holding company, one product deep.</h2>
+        <h2 className="display">A holding company, three products in.</h2>
         <div className="prose">
           <p>
             Metamorian is a Vietnam-based holding company working in digital
             transformation and technology. So far that work has taken the shape
-            of one product in the market and one more in development.
+            of two products in the market and one more in development.
           </p>
           <p>
             The first is Kollab, built for influencer marketing and talent
@@ -377,7 +421,11 @@ function AboutView() {
             marketplace instead of manual, relationship-driven outreach.
           </p>
           <p>
-            The second is Ares: data infrastructure for remote and
+            The second is Kizuna, a world map for keeping track of the people
+            you&rsquo;ve met abroad and how you met them.
+          </p>
+          <p>
+            The third is Ares: data infrastructure for remote and
             disaster-affected regions, starting in Vietnam&rsquo;s highlands and
             extending to disconnected communities elsewhere.
           </p>
