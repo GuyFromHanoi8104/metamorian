@@ -3,6 +3,7 @@ import Mark from './components/Mark.jsx'
 import AresMark from './components/AresMark.jsx'
 import kollabMark from './assets/kollab-mark.jpg'
 import evatechMark from './assets/evatech-mark.jpg'
+import kizunaMark from './assets/kizuna-mark.png'
 
 const NAV = [
   { id: 'home', label: 'Home' },
@@ -13,6 +14,7 @@ const NAV = [
 
 const KOLLAB_URL = 'https://appkollab.com'
 const EVATECH_URL = 'https://evatech-engineering.com'
+const KIZUNA_URL = 'https://gokizuna.eu'
 
 function KollabTile({ className }) {
   return (
@@ -26,6 +28,14 @@ function EvatechTile({ className }) {
   return (
     <span className={className ? `product-tile ${className}` : 'product-tile'}>
       <img src={evatechMark} alt="Evatech Engineering logo" />
+    </span>
+  )
+}
+
+function KizunaTile({ className }) {
+  return (
+    <span className={className ? `product-tile ${className}` : 'product-tile'}>
+      <img src={kizunaMark} alt="Kizuna logo" />
     </span>
   )
 }
@@ -212,8 +222,8 @@ function HomeView({ onNavigate, onContactSales }) {
           <p>
             Outside our own products, Metamorian designs and builds web
             products for other companies. Kollab is our own work, live at
-            appkollab.com. Evatech Engineering is next, shipped at
-            evatech-engineering.com.
+            appkollab.com. Evatech Engineering and Kizuna followed, shipped at
+            evatech-engineering.com and gokizuna.eu.
           </p>
         </div>
 
@@ -247,6 +257,23 @@ function HomeView({ onNavigate, onContactSales }) {
             <a
               className="link-arrow"
               href={EVATECH_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View &rarr;
+            </a>
+          </div>
+          <div className="callout">
+            <KizunaTile />
+            <span className="callout__text">
+              <span className="callout__name">Kizuna</span>
+              <span className="callout__sub">
+                A world map for the people you&rsquo;ve met abroad.
+              </span>
+            </span>
+            <a
+              className="link-arrow"
+              href={KIZUNA_URL}
               target="_blank"
               rel="noopener noreferrer"
             >
